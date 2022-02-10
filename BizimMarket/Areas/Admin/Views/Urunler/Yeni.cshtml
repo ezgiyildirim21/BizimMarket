@@ -1,0 +1,36 @@
+﻿@model YeniUrunViewModel
+@{ 
+    ViewBag.Title = "Yeni Ürün";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label asp-for="Ad" class="form-label">Ad</label>
+                <input asp-for="Ad" type="text" class="form-control" />
+                <span asp-validation-for="Ad" class="form-text"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Fiyat" class="form-label">Fiyat</label>
+                <input asp-for="Fiyat" type="text" class="form-control" />
+                <span asp-validation-for="Fiyat" class="form-text"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="KategoriId" class="form-label">Kategori</label>
+                <select asp-for="KategoriId" asp-items="ViewBag.Kategoriler" class="form-select">
+                    <option value="">Lütfen kategori seçiniz.</option>
+                </select>
+                <span asp-validation-for="KategoriId" class="form-text"></span>
+                @*@Html.ValidationMessageFor(x => x.KategoriId)*@
+            </div>
+            <div class="mb-3">
+                <label asp-for="Resim" class="form-label">Ürün Görseli</label>
+                <input asp-for="Resim" type="file" class="form-control" />
+                <span asp-validation-for="Resim" class="form-text"></span>
+            </div>
+
+            <button class="btn btn-primary">Ekle</button>
+        </form>
+    </div>
+</div>
